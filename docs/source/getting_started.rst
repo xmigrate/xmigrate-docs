@@ -39,6 +39,23 @@ Execute the below command to see the logs from xmigrate app
 Project
 -------
 
+Once the application is up and running the next step is to signup. After signup login to the application using the credentials.
+Now, we have to create a project to start the migration. We define the target cloud in this process. 
+Below are the detailed steps with screenshots to create project for each cloud provider,
+
+AWS
+---
+There are 2 pre-requisites to do migration of servers to AWS. We need an s3 bucket and access credentials to the AWS account with
+full permission to the bucket and permission to create roles and manage compute instances. This is for creating network and compute
+resources in the target cloud while migration. Follow the below steps to create a project for AWS migration,
+
+1. Give a project name and click on AWS logo to set the target cloud as AWS. Then provide the access key and secret key of the target 
+cloud account and click verify.
+
+.. image:: images/aws_project-1.png
+   :width: 600
+
+
 
 Migration
 ---------
