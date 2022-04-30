@@ -30,7 +30,7 @@ Execute below commands to start xmigrate application
    docker-compose up -d
 
 
-Execute the below command to see the logs
+Execute the below command to see the logs from xmigrate app
 
 .. code-block:: bash
    
