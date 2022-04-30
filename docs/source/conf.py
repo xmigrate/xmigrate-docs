@@ -2,11 +2,11 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'Xmigrate'
+copyright = '2022, Vishnu KS'
+author = 'Vishnu kS'
 
-release = '0.1'
+release = 'beta_v0.6.0'
 version = '0.1.0'
 
 # -- General configuration

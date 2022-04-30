@@ -1,10 +1,12 @@
-Welcome to Lumache's documentation!
+Welcome to Xmigrate documentation!
 ===================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+**Xmigrate** (pronounced as cross-migrate) is an opensource tool for migrating your servers
+from anywhere to cloud and cloud to cloud seemlesly. Xmigrate api application is written in Python
+and the frontend application is in Reactjs.
+Here you will find all the information about xmigrate project.
+
+
 
 Check out the :doc:`usage` section for further information, including
 how to :ref:`installation` the project.
