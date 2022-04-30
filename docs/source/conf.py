@@ -9,7 +9,7 @@ author = 'Vishnu kS'
 release = 'beta_v0.6.0'
 version = '0.1.0'
 
-# -- General configuration
+# -- General configuration 
 
 extensions = [
     'sphinx.ext.duration',
