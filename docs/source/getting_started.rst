@@ -15,6 +15,7 @@ can be private or public but the servers which you want to migrate using xmigrat
 Here is an example,
 
 .. code-block:: bash
+
    BASE_URL: http://24.142.113.45:8000/api
 
 
@@ -22,6 +23,7 @@ Here is an example,
 Execute below commands to start xmigrate application
 
 .. code-block:: bash
+
    git clone https://github.com/xmigrate/xmigrate.git
    cd xmigrate
    docker-compose up -d
@@ -30,5 +32,6 @@ Execute below commands to start xmigrate application
 Execute the below command to see the logs
 
 .. code-block:: bash
+   
    docker-compose -f app
 
