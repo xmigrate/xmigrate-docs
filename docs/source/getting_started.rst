@@ -37,7 +37,7 @@ Execute the below command to see the logs from xmigrate app
    docker-compose -f app
 
 Project
-=======
+-------
 .. _aws:
 
 Once the application is up and running the next step is to signup. After signup login to the application using the credentials.
@@ -59,4 +59,4 @@ cloud account and click verify.
 
 
 Migration
-=========
+---------
