@@ -1,5 +1,6 @@
 Getting started
 =====
+.. _getting_started:
 .. _setup:
 .. _project:
 .. _migration:
