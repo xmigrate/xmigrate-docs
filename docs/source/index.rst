@@ -20,7 +20,7 @@ Contents
 --------
 
 .. toctree::
-
-   getting_started
+   
+   setup
    architecture
    api

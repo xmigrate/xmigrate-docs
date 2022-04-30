@@ -1,7 +1,5 @@
-.. _getting started:
 Getting started
 =====
-
 .. _setup:
 .. _project:
 .. _migration:
@@ -16,19 +14,21 @@ the correct IP address of the server where xmigrate is getting setup in `BASE_UR
 can be private or public but the servers which you want to migrate using xmigrate should have access to this IP.
 Here is an example,
 
-.. code-block:: console
+.. code-block:: bash
    BASE_URL: http://24.142.113.45:8000/api
+
 
 
 Execute below commands to start xmigrate application
 
-.. code-block:: console
+.. code-block:: bash
    git clone https://github.com/xmigrate/xmigrate.git
    cd xmigrate
    docker-compose up -d
 
+
 Execute the below command to see the logs
 
-.. code-block:: console
+.. code-block:: bash
    docker-compose -f app
 
