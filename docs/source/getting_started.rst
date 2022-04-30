@@ -1,5 +1,5 @@
 Getting started
-=====
+===============
 .. _getting_started:
 .. _setup:
 .. _project:
@@ -37,7 +37,8 @@ Execute the below command to see the logs from xmigrate app
    docker-compose -f app
 
 Project
--------
+=======
+.. _aws:
 
 Once the application is up and running the next step is to signup. After signup login to the application using the credentials.
 Now, we have to create a project to start the migration. We define the target cloud in this process. 
@@ -58,4 +59,4 @@ cloud account and click verify.
 
 
 Migration
----------
+=========
