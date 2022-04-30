@@ -9,7 +9,7 @@ Here you will find all the information about xmigrate project.
 
 
 
-Check out the :doc:`getting started` section for further information, including
+Check out the :doc:`getting_started` section for further information, including
 how to :ref:`setup` the project.
 
 .. note::
@@ -21,6 +21,6 @@ Contents
 
 .. toctree::
 
-   getting started
+   getting_started
    architecture
    api
