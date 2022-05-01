@@ -54,18 +54,21 @@ resources in the target cloud while migration. Follow the below steps to create 
 
    .. image:: images/aws_project-1.png
       :width: 600
+      :alt: xmigrate aws project creation
 
 2. Now you have to choose a region from the dropdown menu. Dropdown will be empty if the provided credentials are wrong. Make sure that
    the selected region and the region where the s3 bucket is created is same.
 
    .. image:: images/aws_project-2.png
       :width: 600
+      :alt: xmigrate aws project creation
 
 3. Now you have to enter the s3 bucket name and click on save button to finish the project creation process.
 
    .. image:: images/aws_project-3.png
       :width: 600
-   
+      :alt: xmigrate aws project creation
+
 Azure
 ^^^^^
 Project creation process for Azure migration is also very similar to AWS. We need a storage account container, access key for storage account
@@ -76,18 +79,21 @@ and service principal credentials of Azure account. Follow the below steps to cr
 
    .. image:: images/azure_project-1.png
       :width: 600
+      :alt: xmigrate azure project creation
 
 2. Now you have to enter a resource group name and select the region. Make sure that provided resource group name is not existing.
    The region you select should be as same as the region of the storage account.
 
    .. image:: images/azure_project-3.png
       :width: 600
+      :alt: xmigrate azure project creation
 
 3. In this window you have to enter the storage account details. Storage account name, container and access key and the press the 
    save button to create the project.
 
    .. image:: images/azure_project-4.png
       :width: 600
+      :alt: xmigrate azure project creation
 
 GCP
 ^^^
@@ -99,18 +105,21 @@ service account credentials for resource creation. Follow the below steps to cre
 
    .. image:: images/gcp_project-1.png
       :width: 600   
+      :alt: xmigrate gcp project creation
 
 2. Now you have to select a region from the dropdown menu. This region should be same as the region of the storage bucket. If dropdown list
    is empty, then either the credntials are wrong or the service account might not have sufficient privileges.
 
    .. image:: images/gcp_project-2.png
       :width: 600
+      :alt: xmigrate gcp project creation
 
 3. In this screen you have to enter the cloud storage bucket details. Bucket name, access key and secret key and press the save button
    to create the project
 
    .. image:: images/gcp_project-3.png
       :width: 600
+      :alt: xmigrate gcp project creation
 
 
 Migration
