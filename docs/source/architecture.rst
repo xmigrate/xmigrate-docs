@@ -1,5 +1,5 @@
-Xmigrate Architecture
-=====================
+Xmigrate Overview
+=================
 
 .. autosummary::
    :toctree: generated
@@ -8,7 +8,7 @@ Xmigrate Architecture
 
 Xmigrate is designed to support lift and shift migrations of server workloads. Currently it only supports migration of Linux servers.
 Xmigrate now supports migration of servers to AWS, Azure and GCP. Xmigrate works for all kind of application workload migration like web server,
-DB systems, ERP applications, CRM etc. 
+DB systems, ERP applications, CRM applications, CMS etc. 
 
 High level design
 -----------------
@@ -27,3 +27,14 @@ High level design
 
 With this design approach we don't need any additional server to be created to store the disk data. All the disks are cloned
 directly to the target cloud. 
+
+Cloud and OS compatiablity matrix
+---------------------------------
+Xmigrate currently supports below operating system versions for each cloud.
+
+|           | Redhat 7 | Redhat 8 | CentOS 7 | Ubuntu 16.04 | Ubuntu 18.04 | Ubuntu 20.04 |
+|-----------|----------|----------|----------|--------------|--------------|--------------|
+| **AWS**   |  ✅      |   ✅    |    ✅    |              |     ✅      |              |
+| **Azure** |  ✅      |          |   ✅    |     ✅       |     ✅      |      ✅      |
+| **GCP**   |  ✅      |    ✅   |          |     ✅       |     ✅      |      ✅      |
+

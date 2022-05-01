@@ -20,7 +20,6 @@ Contents
 --------
 
 .. toctree::
-   index
    getting_started
    architecture
    api

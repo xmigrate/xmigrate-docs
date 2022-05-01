@@ -124,3 +124,36 @@ service account credentials for resource creation. Follow the below steps to cre
 
 Migration
 ---------
+We can start migrating servers after creating the project. But before getting into the migration process with xmigrate, please 
+ensure the following points
+
+   1. Make sure /etc/fstab contains the mountpoints with block-id rather than the device label.
+   2. Make sure discard flag is added in the /etc/fstab mountpoint entries
+   3. Esure 5th flags of /etc/fstab mountpoint entries are 1 and 6th flag for the boot volume is 1
+   4. Ensure the VM is using the latest or the supported version of linux kernels by the target cloud provider
+   5. Convert the boot partition to MBR if yo have GPT partition scheme and you want to migrate to AWS cloud
+
+While the point number 5 is only applicable for AWS migration, all the other points are important for all 3 cloud provides.
+
+Migration process involves 5 main steps,
+   1. Discovery and preparation
+   2. Blueprint creation
+   3. Landing zone creation
+   4. Disk cloning
+   5. Disk convert
+   6. Server build in target cloud
+
+Discovery and preparation
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Blueprint creation
+^^^^^^^^^^^^^^^^^^
+
+Landing zone creation
+^^^^^^^^^^^^^^^^^^^^^
+
+Disk cloning
+^^^^^^^^^^^^
+
+Disk convert
+^^^^^^^^^^^^
