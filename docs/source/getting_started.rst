@@ -157,3 +157,6 @@ Disk cloning
 
 Disk convert
 ^^^^^^^^^^^^
+
+Server build in target cloud
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
