@@ -36,5 +36,4 @@ Xmigrate currently supports below operating system versions for each cloud.
    :file: static/xmigrate_compatiabilty.csv
    :widths: 30, 70
    :header-rows: 1
-   :header-columns: 1
 
