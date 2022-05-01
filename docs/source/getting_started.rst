@@ -145,18 +145,90 @@ Migration process involves 5 main steps,
 
 Discovery and preparation
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+In this phase we gather informations about the server and the network. We also install aws cli or azcopy or gsutil based on
+the target cloud provider. This is to copy the disk data to the target cloud object storage service.
+We can provide the IP's or hostnames in the `server ips` field. It also need the `username` and the `password` with sudo privilege.
+The same user credentials should be common for all the servers.
 
+   .. image:: images/discovery-1.png
+      :width: 600   
+      :alt: xmigrate discovery phase
+
+Once the discovery is finished, the `Go to Blueprint` button will be enabled and we should click on that to go to the blueprint creation
+page.
+
+   .. image:: images/discovery-2.png
+      :width: 600   
+      :alt: xmigrate discovery phase
+
+      
 Blueprint creation
 ^^^^^^^^^^^^^^^^^^
+In the blueprint creation process we design the landing zone(network and subnet CIDR's) and decide the machine type of each servers.
+Details of each servers is displayed in the first table in the blueprint page.
+
+   .. image:: images/discovery-4.png
+      :width: 600   
+      :alt: xmigrate discovered hosts
+
+First we need to create the network as seen in the below screenshot.
+
+   .. image:: images/blueprint-1.png
+      :width: 600   
+      :alt: xmigrate blueprint network creation
+   
+Then we need to create a subnet as seen in the below screenshot. We have to pass the subnet CIDR and select if the network is public
+or private. 
+
+   .. image:: images/blueprint-2.png
+      :width: 600   
+      :alt: xmigrate blueprint network creation
+
+Now we will get all the discovered server's mapped to the first subnet which we just created. Next step is to select a machine type 
+for the seerver to be creatd in the target cloud and save the blueprint.
+
+   .. image:: images/blueprint-3.png
+      :width: 600   
+      :alt: xmigrate blueprint save
 
 Landing zone creation
 ^^^^^^^^^^^^^^^^^^^^^
+Once we create and save the blueprint we can create the necessary network resources for the migration by clicking on the build network
+button.
+
+   .. image:: images/blueprint-4.png
+      :width: 600   
+      :alt: xmigrate build network
 
 Disk cloning
 ^^^^^^^^^^^^
+Clone button will get enabled after the network creation is completed. We can start cloning by clicking the clone button.
+
+   .. image:: images/blueprint-clone.png
+      :width: 600   
+      :alt: xmigrate disk clone
+
+Disk data will be cloned directly to the target cloud's object storage.
 
 Disk convert
 ^^^^^^^^^^^^
+We clone the disk image in raw format to the object storage. Each cloud provider need disk image to be in certain format.
+We convert the disk image into required format in this step. Click on the convert button as it get enabled after cloning.
+
+   .. image:: images/blueprint-convert.png
+      :width: 600   
+      :alt: xmigrate disk convert
 
 Server build in target cloud
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+As the disk conversion get completes we can click on the build button to start the server build.
+
+   .. image:: images/blueprint-build.png
+      :width: 600   
+      :alt: xmigrate build server
+
+Status will now get changed to 100 when the server build get completed.
+
+   .. image:: images/blueprint-complete.png
+      :width: 600   
+      :alt: xmigrate build complete
