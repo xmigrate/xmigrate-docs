@@ -37,3 +37,8 @@ Xmigrate currently supports below operating system versions for each cloud.
    :widths: 30, 70
    :header-rows: 1
 
+|           | Redhat 7 | Redhat 8 | CentOS 7 | Ubuntu 16.04 | Ubuntu 18.04 | Ubuntu 20.04 |
+|-----------|----------|----------|----------|--------------|--------------|--------------|
+| **AWS**   |  ✅      |   ✅    |    ✅    |              |     ✅      |              |
+| **Azure** |  ✅      |          |   ✅    |     ✅       |     ✅      |      ✅      |
+| **GCP**   |  ✅      |    ✅   |          |     ✅       |     ✅      |      ✅      |
