@@ -32,11 +32,9 @@ Cloud and OS compatiablity matrix
 ---------------------------------
 Xmigrate currently supports below operating system versions for each cloud.
 
-+--------+-----------+-----------+-----------+---------------+---------------+---------------+
-|        | Redhat 7  | Redhat 8  | CentOS 7  | Ubuntu 16.04  | Ubuntu 18.04  | Ubuntu 20.04  |
-+========+===========+===========+===========+===============+===============+===============+
-| AWS    | ✅        | ✅       | ✅        | ❌           | ✅            | ❌           |
-| Azure  | ✅        | ❌       | ✅        | ✅           | ✅            | ✅           |
-| GCP    | ✅        | ✅       | ❌        | ✅           | ✅            | ✅           |
-+--------+-----------+-----------+-----------+---------------+---------------+---------------+
+.. csv-table:: Xmigrate cloud and OS compatiablity matrix
+   :file: static/xmigrate_compatiabilty.csv
+   :widths: 30, 70
+   :header-rows: 1
+   :header-columns: 1
 
