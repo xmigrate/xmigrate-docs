@@ -184,7 +184,7 @@ or private.
       :width: 600   
       :alt: xmigrate blueprint network creation
 
-Now we will get all the discovered servers mapped to the first subnet which we just created. The next step is to select a machine type 
+Now, we will get all the discovered servers mapped to the first subnet which we just created. The next step is to select a machine type 
 for the server to be created in the target cloud and save the blueprint.
 
    .. image:: images/blueprint-3.png
