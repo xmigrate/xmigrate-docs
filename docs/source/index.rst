@@ -22,4 +22,4 @@ Contents
 .. toctree::
    getting_started
    architecture
-   api
+   misc
