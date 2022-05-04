@@ -14,15 +14,12 @@ Follow the below steps to convert GPT boot volumes to MBR.
 
 1. Execute below command to check the partition scheme of the disk
    
-   .. code-block:: bash
 
-      gdisk -l /dev/sda
+   ```gdisk -l /dev/sda```
 
 2. Execute below command to start converting the disk from MBR to GPT
    
-   .. code-block:: bash
-      
-      gdisk /dev/sda
+   ```gdisk /dev/sda```
 
 3. After entering the interactive console of gdisk, enter `r` to select `Recovery and transformation options` then press 
    `g` to `Convert GPT into MBR and exit` then `Print the MBR partition table` by pressing `p` and press `w` to write the 
