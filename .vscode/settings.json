@@ -1,0 +1,23 @@
+{
+    "esbonio.sphinx.confDir": "",
+    "grammarly.overrides": [
+        {
+            "files": [
+                "**/docs/source/getting_started.rst"
+            ],
+            "config": {
+                "audience": "knowledgeable",
+                "dialect": "american",
+                "domain": "technical",
+                "emotions": [
+                    "confident",
+                    "friendly"
+                ],
+                "goals": [
+                    "inform",
+                    "describe"
+                ]
+            }
+        }
+    ]
+}
