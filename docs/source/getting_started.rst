@@ -10,7 +10,7 @@ Setup
 
 Xmigrate can be run easily using the container image from xmigrate docker registry. We recommend to
 run the application with docker-compose file which is provided in the application repo.
-Also, consider changing the credentials used for MongoDB in the `docker-compose.yaml` file and provide
+Also, consider changing the credentials used for Cassandra DB in the `docker-compose.yaml` file and provide
 the correct IP address of the server where xmigrate is getting set up in `BASE_URL` field. The IP address 
 can be private or public but the servers which you want to migrate using xmigrate should have access to this IP.
 Here is an example,
