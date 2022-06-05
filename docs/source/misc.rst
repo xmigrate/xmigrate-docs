@@ -8,7 +8,7 @@ Miscellaneous
 
 AWS
 ---
-AWS migrations only work if the disk partition scheme of boot volume is in MBR. So we need to manualy conver the boot volume 
+AWS migrations only work if the disk partition scheme of boot volume is in MBR. So we need to manualy convert the boot volume 
 partition before starting the migration process. For the conversion, we use a utility called gdisk.
 Follow the below steps to convert GPT boot volumes to MBR.
 
