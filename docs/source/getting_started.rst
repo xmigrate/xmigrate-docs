@@ -208,7 +208,7 @@ After we create the network resources, we prepare the target VMs to be ready for
       Prepare and Clone buttons are enabled simultaneously. The intention of this is to make preparation optional, but we strongly recommend to go through this step (unless already done before for the same target machines) as to avoid potential future errors.
 
    .. warning::
-      This is the step where we install and configure the new kernel as per the target cloud requirements, so make sure to reboot all target VMs after preparation for the them to use the new kernel.
+      This is the step where we install and configure the new kernel as per the target cloud requirements, so make sure to reboot all target VMs after preparation for them to use the new kernel.
 
 Disk cloning
 ^^^^^^^^^^^^
