@@ -6,9 +6,7 @@ Xmigrate Overview
 
    xmigrate
 
-Xmigrate is designed to support lift and shift migrations of server workloads. Currently, it only supports the migration of Linux servers.
-Xmigrate now supports the migration of servers to AWS, Azure, and GCP. Xmigrate works for all kinds of application workload migration like web servers,
-DB systems, ERP applications, CRM applications, CMS etc. 
+Xmigrate is designed to support lift and shift migrations of server workloads. As of now Xmigrate support extends to the migration of servers to AWS, Azure, and GCP clouds. Currently this migration support is limited to Linux servers. Xmigrate works for all kinds of application workload migrations like web servers, DB systems, ERP applications, CRM applications, CMS etc. 
 
 High-level design
 -----------------
@@ -17,13 +15,14 @@ High-level design
       :width: 800
       :alt: xmigrate architecture diagram
 
-1. Discovery and VM preparation phase triggered with ansible
-2. Server and network metadata is sent back to the call back URL
-3. Xmigrate trigger the server to start disk cloning 
-4. The data is sent to the object storage service in the target cloud directly from the application server
-5. Xmigrate download the cloned disk image and convert that to the appropriate format and upload it back to the object storage
-6. Network resources will be created based on the blueprint
-7. Server will be created after importing the image to the target cloud image service
+1. Discovery phase is triggered with Ansible.
+2. Server and Network metadata is sent back to the call back URL.
+3. Xmigrate triggers the server to create the Network resources as defined in the blueprint.
+4. Xmigrate triggers the server to prepare the target VM for migration.
+5. Xmigrate triggers the server to start Disk cloning .
+6. The disk data is sent to the object storage service in the target cloud directly from the application server.
+7. Xmigrate downloads the cloned disk image and converts it to the appropriate format and uploads it back to the object storage.
+8. Server will be created after importing the image to the target cloud image service.
 
 With this design approach, we don't need any additional servers to be created to store the disk data. All the disks are cloned
 directly to the target cloud. 
@@ -35,7 +34,7 @@ Xmigrate currently supports the below operating system versions for each cloud.
  ======== =========== =========== =========== =============== =============== =============== 
      X      Redhat 7    Redhat 8    CentOS 7    Ubuntu 16.04    Ubuntu 18.04    Ubuntu 20.04   
  ======== =========== =========== =========== =============== =============== =============== 
-  AWS      ✅           ✅           ✅           ✅               ✅               ❌              
+  AWS      ✅           ✅           ✅           ✅               ✅               ✅              
   Azure    ✅           ✅           ✅           ✅               ✅               ✅              
   GCP      ✅           ✅           ✅           ✅               ✅               ✅              
  ======== =========== =========== =========== =============== =============== =============== 

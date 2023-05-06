@@ -34,7 +34,7 @@ Execute the below command to see the logs from xmigrate app
 
 .. code-block:: bash
    
-   docker-compose -f app
+   docker-compose logs -f app
 
 Project
 -------
@@ -46,8 +46,8 @@ Below are the detailed steps with screenshots to create a project for each cloud
 AWS
 ^^^
 There are 2 pre-requisites to migrate servers to AWS. We need an s3 bucket and access credentials to the AWS account with
-full permission to the bucket and permission to create roles and manage compute instances. This is for creating the network and compute
-resources in the target cloud while migration. Follow the below steps to create a project for AWS migration,
+full permission to the bucket and permission to create roles and manage compute instances. This is for creating the network, compute
+resources and vmimport role in the target cloud during the migration. Follow the steps below to create a project for AWS migration;
 
 1. Give a project name and click on the AWS logo to set the target cloud to AWS. Then provide the access key and secret key of the target 
    cloud account and click verify.
@@ -74,21 +74,20 @@ Azure
 The project creation process for Azure migration is also very similar to AWS. We need a storage account container, access key for the storage account,
 and service principal credentials of Azure account. Follow the below steps to create a project for Azure migration.
 
-1. Give a project name and click on Azure logo to set the target cloud to Azure. Then provide the service principal credentials
+1. Give a project name and click on the Azure logo to set the target cloud to Azure. Then provide the service principal credentials
    of the Azure account and click verify.
 
    .. image:: images/azure_project-1.png
       :width: 600
       :alt: xmigrate azure project creation
 
-2. Now, you have to enter a resource group name and select the region. Make sure that provided resource group name is not existing.
-   The region you select should be as same as the region of the storage account.
+2. Now, you have to enter a resource group name and select the region. If a resource group of the name you are entered does not exist, it will be created. The best practice should be to use a resource group that does not exist already. The region you select should be as same as the region of the storage account.
 
    .. image:: images/azure_project-3.png
       :width: 600
       :alt: xmigrate azure project creation
 
-3. In this window you have to enter the storage account details. Storage account name, container, and access key and then press the 
+3. In this window you have to enter the storage account details. Enter the storage account name, container name, and access key and then press the 
    save button to create the project.
 
    .. image:: images/azure_project-4.png
@@ -97,7 +96,7 @@ and service principal credentials of Azure account. Follow the below steps to cr
 
 GCP
 ^^^
-The project creation process for GCP is also very similar to both AWS and Azure. We need a cloud storage bucket with an access key and secret key,
+The project creation process for GCP is also very similar to both AWS and Azure. We need a cloud storage bucket with an access key and secret key, and
 service account credentials for resource creation. Follow the below steps to create a project for GCP migration.
 
 1. Give a project name and click on the GCP logo to set the target cloud as GCP. Then provide the service account credential JSON file, 
@@ -107,15 +106,15 @@ service account credentials for resource creation. Follow the below steps to cre
       :width: 600   
       :alt: xmigrate gcp project creation
 
-2. Now, you have to select a region from the dropdown menu. This region should be the same as the region of the storage bucket. If dropdown list
+2. Now, you have to select a region from the dropdown menu. This region should be the same as the region of the storage bucket. If the dropdown list
    is empty, then either the credentials are wrong or the service account might not have sufficient privileges.
 
    .. image:: images/gcp_project-2.png
       :width: 600
       :alt: xmigrate gcp project creation
 
-3. On this screen you have to enter the cloud storage bucket details. Bucket name, access key, and secret key and press the save button
-   to create the project
+3. On this screen you have to enter the cloud storage bucket details. Enter the bucket name, access key, and secret key and press the save button
+   to create the project.
 
    .. image:: images/gcp_project-3.png
       :width: 600
@@ -125,30 +124,27 @@ service account credentials for resource creation. Follow the below steps to cre
 Migration
 ---------
 We can start migrating servers after creating the project. But before getting into the migration process with xmigrate, please 
-ensure the following points
+ensure the following points;
 
    1. Make sure /etc/fstab contains the mount points with block-id rather than the device label.
    2. Make sure the discard flag is added in the /etc/fstab mount point entries
    3. Ensure 5th flags of /etc/fstab mount point entries are 1 and 6th flag for the boot volume is 1
-   4. Ensure the VM is using the latest or the supported version of Linux kernels by the target cloud provider
-   5. Convert the boot partition to MBR if you have GPT partition scheme and you want to migrate to AWS cloud
+   4. Convert the boot partition to MBR if you have GPT partition scheme and you want to migrate to AWS cloud
 
-While point number 5 is only applicable for AWS migration, all the other points are important for all 3 cloud providers.
+While point number 4 is only applicable for AWS migration, all the other points are important for all three cloud providers.
 
-The migration process involves 5 main steps,
-   1. Discovery and preparation
+The migration process involves 6 main steps,
+   1. Discovery
    2. Blueprint creation
    3. Landing zone creation
+   4. VM Preparation
    4. Disk cloning
-   5. Disk convert
+   5. Disk conversion
    6. Server build in the target cloud
 
-Discovery and preparation
-^^^^^^^^^^^^^^^^^^^^^^^^^
-In this phase, we gather information about the server and the network. We also install aws cli or azcopy or gsutil based on
-the target cloud provider. This is to copy the disk data to the target cloud object storage service.
-We can provide the IP's or hostnames in the `server ips` field. It also needs the `username` and the `password` with sudo privilege.
-The same user credentials should be common for all the servers.
+Discovery
+^^^^^^^^^
+The initial step of migration process is gathering information about the server and the network. We can provide the IPs or hostnames in the `server ips` field. It also needs a `username` and the curresponding `password` for login, and make sure the user has sudo privilege. The same user credentials should be common for all the servers.
 
    .. image:: images/discovery-1.png
       :width: 600   
@@ -164,10 +160,10 @@ page.
       
 Blueprint creation
 ^^^^^^^^^^^^^^^^^^
-In the blueprint creation process, we design the landing zone(network and subnet CIDR's) and decide the machine type of each server.
-Details of each server are displayed in the first table on the blueprint page.
+In the blueprint creation process, we design the landing zone(network and subnet CIDRs) and decide the machine type of each server.
+Details of each server is displayed in the first table on the blueprint page.
 
-   .. image:: images/discovery-4.png
+   .. image:: images/discovery-3.png
       :width: 600   
       :alt: xmigrate discovered hosts
 
@@ -178,7 +174,7 @@ First, we need to create the network as seen in the below screenshot.
       :alt: xmigrate blueprint network creation
    
 Then we need to create a subnet as seen in the below screenshot. We have to pass the subnet CIDR and select if the network is public
-or private. 
+or private.
 
    .. image:: images/blueprint-2.png
       :width: 600   
@@ -200,9 +196,23 @@ button.
       :width: 600   
       :alt: xmigrate build network
 
+VM Preparation
+^^^^^^^^^^^^^^
+After we create the network resources, we prepare the target VMs to be ready for the disk cloning by installing the necessary dependencies. During this process we also make sure the configurations are in order for the disk cloning process to run smoothly.
+
+   .. image:: images/discovery-prepare.png
+      :width: 600   
+      :alt: xmigrate discovery phase
+
+   .. note::
+      Prepare and Clone buttons are enabled simultaneously. The intention of this is to make preparation optional, but we strongly recommend to go through this step (unless already done before for the same target machines) as to avoid potential future errors.
+
+   .. warning::
+      This is the step where we install and configure the new kernel as per the target cloud requirements, so make sure to reboot all target VMs after preparation for them to use the new kernel.
+
 Disk cloning
 ^^^^^^^^^^^^
-The clone button will get enabled after the network creation is completed. We can start cloning by clicking the clone button.
+The Clone button will get enabled along with the Prepare button after the network creation is completed. We can start cloning by clicking the clone button. This can be done either after completing the preparation stage or directly without going through that.
 
    .. image:: images/blueprint-clone.png
       :width: 600   
@@ -210,7 +220,7 @@ The clone button will get enabled after the network creation is completed. We ca
 
 Disk data will be cloned directly to the target cloud's object storage.
 
-Disk convert
+Disk conversion
 ^^^^^^^^^^^^
 We clone the disk image in raw format to the object storage. Each cloud provider needs the disk image to be in certain format.
 We convert the disk image into a required format in this step. Click on the convert button as it gets enabled after cloning.
@@ -221,7 +231,7 @@ We convert the disk image into a required format in this step. Click on the conv
 
 Server build in the target cloud
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-As the disk conversion get completes we can click on the build button to start the server build.
+As the disk conversion gets completed we can click on the build button to start the server build.
 
    .. image:: images/blueprint-build.png
       :width: 600   
