@@ -19,7 +19,7 @@ High-level design
 2. Server and Network metadata is sent back to the call back URL.
 3. Xmigrate triggers the server to create the Network resources as defined in the blueprint.
 4. Xmigrate triggers the server to prepare the target VM for migration.
-5. Xmigrate triggers the server to start Disk cloning .
+5. Xmigrate triggers the server to start Disk cloning.
 6. The disk data is sent to the object storage service in the target cloud directly from the application server.
 7. Xmigrate downloads the cloned disk image and converts it to the appropriate format and uploads it back to the object storage.
 8. Server will be created after importing the image to the target cloud image service.

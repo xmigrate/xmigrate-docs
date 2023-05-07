@@ -81,7 +81,7 @@ and service principal credentials of Azure account. Follow the below steps to cr
       :width: 600
       :alt: xmigrate azure project creation
 
-2. Now, you have to enter a resource group name and select the region. If a resource group of the name you are entered does not exist, it will be created. The best practice should be to use a resource group that does not exist already. The region you select should be as same as the region of the storage account.
+2. Now, you have to enter a resource group name and select the region. If a resource group of the name you entered does not exist, it will be created. The best practice should be to use a resource group that does not exist already. The region you select should be same as the region of the storage account.
 
    .. image:: images/azure_project-3.png
       :width: 600
@@ -127,20 +127,20 @@ We can start migrating servers after creating the project. But before getting in
 ensure the following points;
 
    1. Make sure /etc/fstab contains the mount points with block-id rather than the device label.
-   2. Make sure the discard flag is added in the /etc/fstab mount point entries
-   3. Ensure 5th flags of /etc/fstab mount point entries are 1 and 6th flag for the boot volume is 1
-   4. Convert the boot partition to MBR if you have GPT partition scheme and you want to migrate to AWS cloud
+   2. Make sure the discard flag is added in the /etc/fstab mount point entries.
+   3. Ensure 5th flags of /etc/fstab mount point entries are 1 and 6th flag for the boot volume is 1.
+   4. Convert the boot partition to MBR if you have GPT partition scheme and you want to migrate to AWS cloud.
 
 While point number 4 is only applicable for AWS migration, all the other points are important for all three cloud providers.
 
-The migration process involves 6 main steps,
+The migration process involves 7 main steps,
    1. Discovery
    2. Blueprint creation
    3. Landing zone creation
    4. VM Preparation
-   4. Disk cloning
-   5. Disk conversion
-   6. Server build in the target cloud
+   5. Disk cloning
+   6. Disk conversion
+   7. Server build in the target cloud
 
 Discovery
 ^^^^^^^^^
@@ -160,7 +160,7 @@ page.
       
 Blueprint creation
 ^^^^^^^^^^^^^^^^^^
-In the blueprint creation process, we design the landing zone(network and subnet CIDRs) and decide the machine type of each server.
+In the blueprint creation process, we design the landing zone (network and subnet CIDRs) and decide the machine type of each server.
 Details of each server is displayed in the first table on the blueprint page.
 
    .. image:: images/discovery-3.png
@@ -196,19 +196,16 @@ button.
       :width: 600   
       :alt: xmigrate build network
 
-VM Preparation
+VM preparation
 ^^^^^^^^^^^^^^
-After we create the network resources, we prepare the target VMs to be ready for the disk cloning by installing the necessary dependencies. During this process we also make sure the configurations are in order for the disk cloning process to run smoothly.
+After we create the network resources, we prepare the target VMs to be ready for the disk cloning by installing the necessary dependencies. During this process we also make sure the configurations are in order for the upcoming stages to run smoothly.
 
-   .. image:: images/discovery-prepare.png
+   .. image:: images/blueprint-prepare.png
       :width: 600   
-      :alt: xmigrate discovery phase
+      :alt: xmigrate vm preparation phasp
 
    .. note::
-      Prepare and Clone buttons are enabled simultaneously. The intention of this is to make preparation optional, but we strongly recommend to go through this step (unless already done before for the same target machines) as to avoid potential future errors.
-
-   .. warning::
-      This is the step where we install and configure the new kernel as per the target cloud requirements, so make sure to reboot all target VMs after preparation for them to use the new kernel.
+      Prepare and Clone buttons are enabled simultaneously. The intention of this is to make preparation optional, but we strongly recommend to go through this step (unless already done before for the same source machines) as to avoid potential future errors.
 
 Disk cloning
 ^^^^^^^^^^^^
