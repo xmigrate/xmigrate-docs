@@ -81,7 +81,7 @@ and service principal credentials of Azure account. Follow the below steps to cr
       :width: 600
       :alt: xmigrate azure project creation
 
-2. Now, you have to enter a resource group name and select the region. If a resource group of the name you entered does not exist, it will be created. The best practice should be to use a resource group that does not exist already. The region you select should be same as the region of the storage account.
+2. Now, you have to enter a resource group name and select the region. If a resource group of the name you entered does not exist, it will be created. The best practice should be to use a resource group that does not exist already. The region you select should be the same as the region of the storage account.
 
    .. image:: images/azure_project-3.png
       :width: 600
@@ -203,6 +203,7 @@ After we create the network resources, we prepare the target VMs to be ready for
    .. image:: images/blueprint-prepare.png
       :width: 600   
       :alt: xmigrate vm preparation phasp
+
 
    .. note::
       Prepare and Clone buttons are enabled simultaneously. The intention of this is to make preparation optional, but we strongly recommend to go through this step (unless already done before for the same source machines) as to avoid potential future errors.
