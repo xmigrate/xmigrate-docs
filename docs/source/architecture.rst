@@ -38,3 +38,5 @@ Xmigrate currently supports the below operating system versions for each cloud.
   Azure    ✅           ✅           ✅           ✅               ✅               ✅              
   GCP      ✅           ✅           ✅           ✅               ✅               ✅              
  ======== =========== =========== =========== =============== =============== =============== 
+
+ *We are aware of and working hard to find a quick solution to some issues that prevent vm connectivity after migrations of Azure to AWS, Azure to GCP, and GCP to Azure. In the meantime, all other combinations with our supported providers can be used without issues.

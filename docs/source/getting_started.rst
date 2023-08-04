@@ -9,8 +9,8 @@ Setup
 -----
 
 Xmigrate can be run easily using the container image from xmigrate docker registry. We recommend to
-run the application with docker-compose file which is provided in the application repo.
-Also, consider changing the credentials used for Cassandra DB in the `docker-compose.yaml` file and provide
+run the application with docker-compose file which is provided in the application repository.
+Also, consider changing the credentials used for PostgreSQL DB in the `docker-compose.yaml` file and provide
 the correct IP address of the server where xmigrate is getting set up in `BASE_URL` field. The IP address 
 can be private or public but the servers which you want to migrate using xmigrate should have access to this IP.
 Here is an example,
@@ -20,32 +20,31 @@ Here is an example,
    BASE_URL: http://24.142.113.45:8000/api
 
 
-
 Execute the below commands to start xmigrate application
 
 .. code-block:: bash
 
    git clone https://github.com/xmigrate/xmigrate.git
    cd xmigrate
-   docker-compose up -d
+   docker compose up -d
 
 
 Execute the below command to see the logs from xmigrate app
 
 .. code-block:: bash
    
-   docker-compose logs -f app
+   docker compose logs -f app
 
 Project
 -------
 
-Once the application is up and running the next step is to signup. After signup login to the application using the credentials.
+Once the application is up and running, the next step is to signup. After signup login to the application using the credentials.
 Now, we have to create a project to start the migration. We define the target cloud in this process. 
 Below are the detailed steps with screenshots to create a project for each cloud provider,
 
 AWS
 ^^^
-There are 2 pre-requisites to migrate servers to AWS. We need an s3 bucket and access credentials to the AWS account with
+There are two pre-requisites to migrate servers to AWS. We need an s3 bucket and access credentials to the AWS account with
 full permission to the bucket and permission to create roles and manage compute instances. This is for creating the network, compute
 resources and vmimport role in the target cloud during the migration. Follow the steps below to create a project for AWS migration;
 
@@ -99,8 +98,7 @@ GCP
 The project creation process for GCP is also very similar to both AWS and Azure. We need a cloud storage bucket with an access key and secret key, and
 service account credentials for resource creation. Follow the below steps to create a project for GCP migration.
 
-1. Give a project name and click on the GCP logo to set the target cloud as GCP. Then provide the service account credential JSON file, 
-   project id and then click verify.
+1. Give a project name and click on the GCP logo to set the target cloud as GCP. Then provide the service account credential JSON file and click verify.
 
    .. image:: images/gcp_project-1.png
       :width: 600   
@@ -129,11 +127,8 @@ ensure the following points;
    1. Make sure /etc/fstab contains the mount points with block-id rather than the device label.
    2. Make sure the discard flag is added in the /etc/fstab mount point entries.
    3. Ensure 5th flags of /etc/fstab mount point entries are 1 and 6th flag for the boot volume is 1.
-   4. Convert the boot partition to MBR if you have GPT partition scheme and you want to migrate to AWS cloud.
 
-While point number 4 is only applicable for AWS migration, all the other points are important for all three cloud providers.
-
-The migration process involves 7 main steps,
+The migration process involves seven main steps,
    1. Discovery
    2. Blueprint creation
    3. Landing zone creation
@@ -167,13 +162,14 @@ Details of each server is displayed in the first table on the blueprint page.
       :width: 600   
       :alt: xmigrate discovered hosts
 
-First, we need to create the network as seen in the below screenshot.
+First, we need to create the network as shown in the below screenshot.
+Note: the example shown is that of a GCP migration which does not require network CIDR but other supported providers do.
 
    .. image:: images/blueprint-1.png
       :width: 600   
       :alt: xmigrate blueprint network creation
    
-Then we need to create a subnet as seen in the below screenshot. We have to pass the subnet CIDR and select if the network is public
+Then we need to create a subnet as shown in the below screenshot. We have to pass the subnet CIDR and select if the network is public
 or private.
 
    .. image:: images/blueprint-2.png
